@@ -2,13 +2,11 @@
 
 // on charge le fichier autolaod.php qui va tout require
 require "../vendor/autoload.php";
-// on importe notre classe MysqlConnection en utilisant notre namespace créé précédemment
+// on utilise notre service (dans le namespace) qui va requeter la base et afficher
 use App\Service\UserService;
 
 $userService = new UserService();
-var_dump($userService->findAll());
-
-//$rows = $connection->select('SELECT * from users');
+$rows = $userService->findAll();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +19,7 @@ var_dump($userService->findAll());
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Users</title>
 </head>
-
+<button type="button" class="btn btn-primary"><a href="/php/Form.php" style="color: white; text-decoration: none;">Newsletter</a></button>
 <table class="table">
     <thead>
         <tr>

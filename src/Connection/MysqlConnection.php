@@ -7,7 +7,6 @@ use \PDO;
 class MysqlConnection
 {
     private static $pdoConnection = null;
-    private $stmt;
 
     private function __construct()
     {

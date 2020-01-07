@@ -9,8 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "App\\": "src/",
-            "AppService": "src/Service/"
+            "App\\": "src/"
         }
     },
     "require": {}
