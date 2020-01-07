@@ -1,0 +1,11 @@
+{
+    "name": "ynov/user_composer",
+    "description": "php7 w/ composer",
+    "authors": [
+        {
+            "name": "Valmnt",
+            "email": "valentin.mont@ynov.com"
+        }
+    ],
+    "require": {}
+}
