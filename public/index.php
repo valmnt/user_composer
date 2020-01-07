@@ -3,7 +3,6 @@
 // on charge le fichier autolaod.php qui va tout require
 require "../vendor/autoload.php";
 // on importe notre classe MysqlConnection en utilisant notre namespace créé précédemment
-use App\Connection\MysqlConnection;
 use App\Service\UserService;
 
 $userService = new UserService();
