@@ -7,5 +7,11 @@
             "email": "valentin.mont@ynov.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "AppService": "src/Service/"
+        }
+    },
     "require": {}
 }

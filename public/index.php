@@ -1,14 +1,15 @@
 <?php
-require_once __DIR__ . "/src/connection/connection.php";
 
-$connection = new  MysqlConnection('root', 'user');
-$rows = $connection->select('SELECT * from users');
+// on charge le fichier autolaod.php qui va tout require
+require "../vendor/autoload.php";
+// on importe notre classe MysqlConnection en utilisant notre namespace créé précédemment
+use App\Connection\MysqlConnection;
+use App\Service\UserService;
 
-#insertion massive dans la table 'users'
-#$connection->insert();
+$userService = new UserService();
+var_dump($userService->findAll());
 
-#suppression massive dans la table 'users'
-#$connection->delete("users");
+//$rows = $connection->select('SELECT * from users');
 ?>
 
 <!DOCTYPE html>
@@ -21,26 +22,6 @@ $rows = $connection->select('SELECT * from users');
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Users</title>
 </head>
-
-
-<form action="form.php" method="post">
-    <div>
-        <label for="name">Name :</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div>
-        <label for="firstname">Firstname :</label>
-        <input type="text" id="mail" name="firstname">
-    </div>
-    <div>
-        <label for="age">Age :</label>
-        <input id="text" name="age"></input>
-    </div>
-    <div class="button">
-        <button type="submit">Envoyer le message</button>
-    </div>
-</form>
-
 
 <table class="table">
     <thead>
