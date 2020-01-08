@@ -32,4 +32,18 @@ class FormService extends AbstractService
             $delete->execute();
         }
     }
+
+    public function deleteByCheck()
+    {
+        if (isset($_POST['id'])) {
+            $tab = $_POST['id'];
+            foreach ($tab as $id) {
+                $sql = "DELETE FROM newsletter WHERE id = $id";
+                $delete = $this->db->query($sql);
+                $delete->execute();
+            }
+            echo count($_POST['id']);
+            unset($_POST['id']);
+        }
+    }
 }

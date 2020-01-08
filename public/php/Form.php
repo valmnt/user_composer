@@ -6,7 +6,9 @@ use App\Service\FormService;
 $formService = new FormService;
 $formService->sendMail();
 $formService->deleteByID();
+$formService->deleteByCheck();
 $rows = $formService->findAllMail();
+
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +48,20 @@ $rows = $formService->findAllMail();
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($rows as $row) { ?>
-                    <tr>
-                        <td><?php echo $row['mail'] ?><button type="button" class="btn btn-danger"><a style="color: white;" href="Form.php?delete_id=<?php echo $row['id']; ?>">Delete</a></button></td>
-                    </tr>
-                <?php } ?>
+                <form action="Form.php" method="POST">
+                    <input type="submit">
+                    <?php foreach ($rows as $row) { ?>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="id[]" value="<?php echo $row['id']; ?>">
+                </form>
+                <?php echo $row['mail'] ?>
+                <button type="button" class="btn btn-danger">
+                    <a style="color: white;" href="Form.php?delete_id=<?php echo $row['id']; ?>">Delete</a>
+                </button>
+                </td>
+                </tr>
+            <?php } ?>
             </tbody>
         </table>
     </div>
