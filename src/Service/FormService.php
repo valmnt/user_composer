@@ -14,6 +14,7 @@ class FormService extends AbstractService
             $STH->bindParam(':post', $post);
             $STH->execute();
             header('Location: Form.php');
+            exit;
         }
     }
 
