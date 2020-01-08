@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Utils;
 use PDO;
 
 class FormService extends AbstractService
@@ -13,8 +14,7 @@ class FormService extends AbstractService
             $STH = $this->db->prepare('INSERT INTO newsletter(mail) VALUES (:post)');
             $STH->bindParam(':post', $post);
             $STH->execute();
-            header('Location: Form.php');
-            exit;
+            Utils::redirect('Form.php');
         }
     }
 
